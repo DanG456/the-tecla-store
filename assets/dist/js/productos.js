@@ -1,4 +1,4 @@
-class Productos {
+class Products {
     constructor(data) {
         this.data = data
     };
@@ -26,25 +26,25 @@ class Productos {
             let cardBody = document.createElement("div");
 
             //Nombre del producto
-            let nombreProducto = document.createElement("h5");
-            nombreProducto.setAttribute("class", "card-text");
-            nombreProducto.textContent = `${this.data.results[index].title}`;
+            let productName = document.createElement("h5");
+            productName.setAttribute("class", "card-text");
+            productName.textContent = `${this.data.results[index].title}`;
 
             //Pie de tarjeta
             let cardFooter = document.createElement("div");
             cardFooter.setAttribute("class", "d-flex justify-content-between align-items-center");
 
             //Precio del producto
-            let precioProducto = document.createElement("small");
-            precioProducto.textContent = `$${this.data.results[index].price}`;
+            let productPrice = document.createElement("small");
+            productPrice.textContent = `$${this.data.results[index].price}`;
 
             cardContainer.appendChild(col);
             col.appendChild(card);
             card.appendChild(imagen);
             card.appendChild(cardBody);
-            cardBody.appendChild(nombreProducto);
+            cardBody.appendChild(productName);
             cardBody.appendChild(cardFooter);
-            cardFooter.appendChild(precioProducto);
+            cardFooter.appendChild(productPrice);
         }
     }
 
@@ -61,10 +61,10 @@ class Productos {
     };
     
     static getProductList = async (list) =>{
-        let resultado;
-        resultado = await this.getProduct(list)
-        console.log(resultado);
+        let result;
+        result = await this.getProduct(list)
+        console.log(result);
     }
 }
 
-Productos.getProductList("https://api.mercadolibre.com/sites/MLM/search?category=MLM1055&sort=available_quantity_desc");
+Products.getProductList("https://api.mercadolibre.com/sites/MLM/search?category=MLM1055&sort=available_quantity_desc");
