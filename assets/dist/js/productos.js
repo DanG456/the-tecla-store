@@ -5,29 +5,31 @@ class Products {
 
     //Metodos
     crearProductos = () => {
-        for (let index = 0; index < 9; index++){
+        for (let index = 0; index < 19; index++){
             //Contenedor principal donde se alojan las tarjetas
             let cardContainer = document.getElementById("cardContainer");
 
-            //div col
-            let col = document.createElement("div");
-
             //div card
             let card = document.createElement("div");
-            card.setAttribute("class", "card shadow-sm");
+            card.setAttribute("class", "card cardGrid border-light py-10");
+
+            //div colimg (para colocar la imagen)
+            let colImg = document.createElement("div");
+            colImg.setAttribute("class", "cardImgGrid")
 
             //div imagen
-            let imagen = document.createElement("img");
-            imagen.setAttribute("src", this.data.results[index].thumbnail);
-            imagen.setAttribute("class", "bd-placeholder-img card-img-top")
-            imagen.style.width = "200px";
+            let image = document.createElement("img");
+            image.setAttribute("src", this.data.results[index].thumbnail);
+            image.setAttribute("class", "img-fluid rounded-start")
+            image.style.width = "200px";
 
             //div cardBody
             let cardBody = document.createElement("div");
+            cardBody.setAttribute ("class", "card-body cardBodyGrid")
 
             //Nombre del producto
             let productName = document.createElement("h5");
-            productName.setAttribute("class", "card-text");
+            productName.setAttribute("class", "card-title");
             productName.textContent = `${this.data.results[index].title}`;
 
             //Pie de tarjeta
@@ -37,10 +39,11 @@ class Products {
             //Precio del producto
             let productPrice = document.createElement("small");
             productPrice.textContent = `$${this.data.results[index].price}`;
+            productPrice.setAttribute("style", "font-size: 1.2em")
 
-            cardContainer.appendChild(col);
-            col.appendChild(card);
-            card.appendChild(imagen);
+            cardContainer.appendChild(card);
+            card.appendChild(colImg);
+            colImg.appendChild(image);
             card.appendChild(cardBody);
             cardBody.appendChild(productName);
             cardBody.appendChild(cardFooter);
@@ -55,7 +58,7 @@ class Products {
         const resp = await fetch(url)
         const data = await resp.json()
         console.log(data)
-        Product = new Productos (data)
+        Product = new Products (data)
         Product.crearProductos()
         return data
     };
