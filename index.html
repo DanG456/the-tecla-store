@@ -1,91 +1,165 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="utf-8">
+
+  <head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.80.0">
     <title>The Tecla Store</title>
+    <link rel="shortcut icon" href="./assets/dist/img/LogoBlack.svg">
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/album/">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/carousel/">
 
+    <!--Bootstrap 5.0 CSS-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <!-- Bootstrap core CSS -->
     <link href="./assets/dist/css/bootstrap.min.css" rel="stylesheet">
-    
+    <!-- Custom styles for this template -->
+    <link href="./assets/dist/css/carousel.css" rel="stylesheet">
     <!-- Estilos propios -->
     <link rel="stylesheet" href="./assets/dist/css/styles.css">
-</head>
+    <!-- CSS own-->
+    <link rel="stylesheet" href="./assets/dist/css/indexStyles.css">    
 
-<body>
+  </head>
 
-  <header>
-    <div class="collapse bg-dark" id="navbarHeader">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-8 col-md-7 py-4">
-            <h4 class="text-white">About</h4>
-            <p class="text-muted">Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.</p>
-          </div>
-          <div class="col-sm-4 offset-md-1 py-4">
-            <h4 class="text-white">Contact</h4>
-            <ul class="list-unstyled">
-              <li><a href="#" class="text-white">Follow on Twitter</a></li>
-              <li><a href="#" class="text-white">Like on Facebook</a></li>
-              <li><a href="#" class="text-white">Email me</a></li>
+  <body>  
+
+    <header class="container">
+      <!--Barra de navegación superior-->
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <div class="container-fluid">
+
+          <a class="navbar-brand" href="#">
+            <img src="./assets/dist/img/LogoBlack.svg" alt="Logo" class="d-inline-block align-top" id="logo">
+          </a>
+
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+              </li>
+              
+              <li class="nav-item">
+                <a class="nav-link" href="./products.html">Dispositivos</a>
+              </li>
+
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="MenuDrop" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  M&aacute;s Productos  
+                </a>
+                <div class="dropdown-menu" aria-labelledby="MenuDrop">
+                  <a class="dropdown-item" href="#">Cargadores</a>
+                  <a class="dropdown-item" href="#">Esenciales</a>
+                  <a class="dropdown-item" href="#">Accesorios</a>
+                </div>
+              </li>
+              
+              <li class="nav-item">
+                <a class="nav-link" href="./login_demo.html">Login</a>
+              </li>
             </ul>
+            <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Buscar productos" aria-label="Search">
+              <button class="btn btn-outline-info" type="submit">Buscar</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+
+      <!--Carrusel-->
+      <div id="theCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#theCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#theCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        </div>
+
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="./assets/dist/img/PrincipalBlackBackground.png" class="d-block w-100" alt="">
+          </div>
+          <div class="carousel-item">
+            <img src="./assets/dist/img/PrincipalWhiteBackground.png" class="d-block w-100" alt="">
+          </div>
+        </div>     
+      </div>   
+
+      <!--Dispositivos-->
+      <div class="card-group py-3 bg-light">
+        <div class="container">
+          <div id="cardContainer2" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3"></div>
+          <div class="container justify-content-center align-items-center">
+            <a class="btn btn-info" href="./products.html">Ver m&aacute;s &raquo;</a>
           </div>
         </div>
       </div>
-    </div>
-    <div class="navbar navbar-dark bg-dark shadow-sm">
-      <div class="container">
-        <a href="#" class="navbar-brand d-flex align-items-center">
-          <strong>The Tecla Store</strong>
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      </div>
-    </div>
-  </header>
+      
 
-  <main>
+      <!--Categorias-->
+      <div class="container marketing">
 
-    <section class="py-5 text-center container">
-      <div class="row py-lg-5">
-        <div class="col-lg-6 col-md-8 mx-auto">
-          <h1 class="fw-light">Dispositivos M&oacute;viles en Tendencia</h1>
-          <p class="lead text-muted">¡Bienvenido! <br> En esta p&aacute;gina encontrar&aacute;s los &uacute;ltimos dispositivos m&oacute;viles en tendencia a su mejor precio.</p>
-          <p>
-            <button href="#" class="btn btn-outline-primary my-2" disabled>Login</button>
-            <button href="#" class="btn btn-outline-info my-2" disabled>Info</button>
-          </p>
+        <hr class="featurette-divider">
+        <div class="row">
+          <div class="col-md-6 offset-md-1 col-12 ">
+            <h2 class="featurette-heading">Cargadores</h2>
+            <p class="lead">Disponemos de distintos modelos de cargador para que elijas a tu conveniencia.</p>
+            <p><a class="btn btn-info" href="#">Ver catálogo &raquo;</a></p>
+          </div>
+        <div class="col-md-4 col-12">
+          <img src="./assets/dist/img/Cargador.jpg" class="imageSquare img-fluid" alt="">
         </div>
-      </div>
-    </section>
 
-    <div class="card-group py-3 bg-light">
-      <div class="container">
-        <div id="cardContainer" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3"></div>
+        <hr class="featurette-divider">
+        <div class="row">
+          <div class="col-md-6 offset-md-1 order-last col-12">
+            <h2 class="featurette-heading">Esenciales</h2>
+            <p class="lead">Accesorios como micas y baterias indispensables para tu equipo.</p>
+            <p><a class="btn btn-info" href="#">Ver catálogo &raquo;</a></p>
+          </div>
+          <div class="col-md-4 offset-md-1 order-first col-12">
+            <img src="./assets/dist/img/Mica.jpg" class="imageSquare img-fluid" alt="">
+          </div>
+        </div>
+
+        <hr class="featurette-divider">
+        <div class="row">
+          <div class="col-md-6 offset-md-1 col-12">
+            <h2 class="featurette-heading text-right">Accesorios</h2>
+            <p class="lead text-right">Articulos decorativos o de apoyo para tu equipo (bases, selfie sticks, etc.).</p>
+            <p><a class="btn btn-info" href="#">Ver catálogo &raquo;</a></p>
+          </div>
+        <div class="col-md-4 col12">
+          <img src="./assets/dist/img/Base.jpg" class="imageSquare img-fluid" alt="">
+        </div>
+      
       </div>
-    </div>
+
+      <hr class="featurette-divider">
+
+      <!-- FOOTER -->
+      <footer class="container">
+        <p class="float-end"><a href="#">Regresar arriba</a></p>
+        <p>&copy; 2021 The Tecla Store, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+      </footer>
 
     </main>
 
-    <footer class="text-muted py-5">
-      <div class="container">
-        <p class="float-end mb-1">
-          <a href="#">Back to top</a>
-        </p>
-        <p class="mb-1">Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
-        <p class="mb-0">New to Bootstrap? <a href="/">Visit the homepage</a> or read our <a href="../getting-started/introduction/">getting started guide</a>.</p>
-      </div>
-    </footer>
+  <!--jQuery-->
+  <script src="./assets/dist/js/jQuery.js"></script>
+  <!--Bootstrap 5.0-->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <script src="./assets/dist/js/ProductsIndex.js"></script>
 
-    <!--JS-->
-    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="./assets/dist/js/productos.js"></script>
 
   </body>
 </html>
