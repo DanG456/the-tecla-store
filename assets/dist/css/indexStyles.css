@@ -23,11 +23,7 @@
 
 .btn-outline-info {border-color: #23b5b5; color: #23b5b5;}
 .btn-outline-info:hover {border-color: #23b5b5; background-color: #23b5b5; }
-
-.featurette-divider {
-  margin-top: 1rem;
-}
-
-.carousel {
-  margin-bottom: 0;
-}
+.featurette-divider {margin-top: 1rem;}
+.carousel {margin-bottom: 0;}
+.btn-info {border-color: #23b5b5; background: #343a40; color: #23b5b5;}
+.btn-info:hover {border-color: #23b5b5; background-color: #23b5b5;}
