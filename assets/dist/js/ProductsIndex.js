@@ -1,13 +1,13 @@
-class Products {
+class ProductsIndex {
     constructor(data) {
         this.data = data
     };
 
     //Metodos
     crearProductos = () => {
-        for (let index = 0; index < 19; index++){
+        for (let index = 0; index < 6; index++){
             //Contenedor principal donde se alojan las tarjetas
-            let cardContainer = document.getElementById("cardContainer");
+            let cardContainer = document.getElementById("cardContainer2");
 
             //div card
             let card = document.createElement("div");
@@ -58,7 +58,7 @@ class Products {
         const resp = await fetch(url)
         const data = await resp.json()
         console.log(data)
-        Product = new Products (data)
+        Product = new ProductsIndex (data)
         Product.crearProductos()
         return data
     };
@@ -70,4 +70,4 @@ class Products {
     }
 }
 
-Products.getProductList("https://api.mercadolibre.com/sites/MLM/search?category=MLM1055&sort=available_quantity_desc");
+ProductsIndex.getProductList("https://api.mercadolibre.com/sites/MLM/search?category=MLM1055&sort=available_quantity_desc");
