@@ -16,4 +16,21 @@ module.exports = (app) =>{
 
         res.send(Carrito.Respuesta)
     })
+    
+     app.delete('/Pago_Arts/:nombre',chkAcc.checkAccount, (req,res)=>{
+        if(Carrito.eliminarCarrito(req.params.nombre)){
+            Carrito.Respuesta={
+                codigo:200,
+                error:false,
+                mensaje: "Articulo eliminado del carrito"
+            }
+        }else{
+            Carrito.Respuesta={
+                codigo:502,
+                error: true,
+                mensaje: "Hubo un problema al eliminar el articulo de su carrito"
+            }
+        }
+        res.send(Carrito.Respuesta)
+    })
 }
