@@ -1,6 +1,7 @@
 //Importar modulos necesarios
 const chkAcc = require("../Middleware/midd")
 const Carrito = require ("../assets/dist/js/Carrito")
+const cors = requiere ('cors')
 //Exportar las rutas para trabajar el server
 
 module.exports = (app) =>{
