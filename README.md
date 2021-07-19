@@ -7,4 +7,7 @@
 2) Una vez clonado el proyecto es necesario entrar a la carpeta **back** e iniciar una ventana de Visual Studio Code. En esta ventana abriremos una terminal y descargaremos los módulos usados y necesarios:
 > npm install
 
+4) Para iniciar el servidor utilizaremos:
+> node app.js
+
 3) El servidor estará funcionando. Para iniciar el frontend es necesario abrir una nueva ventana de Visual Studio Code y hacer uso de la extensión **Live Server** en el archivo **index.html**
