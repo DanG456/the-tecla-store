@@ -14,7 +14,8 @@ class ML {
     //* Save Products data
     saveProducts = async() => {
         for(let index = 0; index < 20 ; index ++){
-            Product[index] = {"title" : this.data.results[index].title,
+            Product[index] = {"id" : this.data.results[index].id,
+                "title" : this.data.results[index].title,
                 "thumnail" : this.data.results[index].thumbnail,
                 "price" : this.data.results[index].price,
                 "index" : index}   
