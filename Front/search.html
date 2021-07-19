@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.80.0">
+    <title>The Tecla Store</title>
+    <link rel="shortcut icon" href="./assets/dist/img/LogoBlack.svg">
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/album/">
+
+    <!--Bootstrap 5.0 CSS-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- Bootstrap core CSS -->
+    <link href="./assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Estilos propios -->
+    <link rel="stylesheet" href="./assets/dist/css/styles.css">
+    <!-- CSS own-->
+    <link rel="stylesheet" href="./assets/dist/css/indexStyles.css">    
+</head>
+
+<body>
+
+  <header class="container">
+    <!--Barra de navegación superior-->
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <div class="container-fluid">
+
+        <a class="navbar-brand" href="./index.html">
+          <img src="./assets/dist/img/LogoBlack.svg" alt="Logo" class="d-inline-block align-top" id="logo">
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav me-auto mb-2 mb-md-0">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="./index.html">Inicio</a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link" href="./products.html">Dispositivos</a>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="MenuDrop" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                M&aacute;s Productos  
+              </a>
+              <div class="dropdown-menu" aria-labelledby="MenuDrop">
+                <a class="dropdown-item" href="./chargers.html">Cargadores</a>
+                <a class="dropdown-item" href="./esencials.html">Esenciales</a>
+                <a class="dropdown-item active" href="./accesories.html">Accesorios</a>
+              </div>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link" href="./login_demo.html">Login</a>
+            </li>
+          </ul>
+          <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Buscar productos" aria-label="Search">
+            <button class="btn btn-outline-info" type="submit">Buscar</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+
+
+  <main>
+
+    <section class="py-5 text-center container">
+      <div class="row py-lg-5">
+        <div class="col-lg-6 col-md-8 mx-auto">
+          <h1 class="fw-light" id="searchTitle"></h1>
+          <p class="lead text-muted" id="searchDescription"></p>
+          <!-- <p>
+            <button href="#" class="btn btn-outline-primary my-2" disabled>Login</button>
+            <button href="#" class="btn btn-outline-info my-2" disabled>Info</button>
+          </p> -->
+        </div>
+      </div>
+    </section>
+
+    <div class="card-group py-3 bg-light">
+      <div class="container">
+        <div id="cardContainer" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3"></div>
+      </div>
+    </div>
+
+    </main>
+
+    <footer class="text-muted py-5">
+      <div class="container">
+        <p class="float-end mb-1">
+          <a href="#">Regresar arribap</a>
+        </p>
+        <p class="mb-1">Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
+        <p class="mb-0">New to Bootstrap? <a href="/">Visit the homepage</a> or read our <a href="../getting-started/introduction/">getting started guide</a>.</p>
+      </div>
+    </footer>
+
+    <!--JS-->
+    <script src="./assets/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./assets/dist/js/search.js"></script>
+
+  </body>
+</html>

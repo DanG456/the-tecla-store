@@ -55,9 +55,9 @@
                   M&aacute;s Productos  
                 </a>
                 <div class="dropdown-menu" aria-labelledby="MenuDrop">
-                  <a class="dropdown-item" href="#">Cargadores</a>
-                  <a class="dropdown-item" href="#">Esenciales</a>
-                  <a class="dropdown-item" href="#">Accesorios</a>
+                  <a class="dropdown-item" href="./chargers.html">Cargadores</a>
+                  <a class="dropdown-item" href="./esencials.html">Esenciales</a>
+                  <a class="dropdown-item" href="./accesories.html">Accesorios</a>
                 </div>
               </li>
               
@@ -66,8 +66,8 @@
               </li>
             </ul>
             <form class="d-flex">
-              <input class="form-control me-2" type="search" placeholder="Buscar productos" aria-label="Search">
-              <button class="btn btn-outline-info" type="submit">Buscar</button>
+              <input class="form-control me-2" type="search" placeholder="Buscar productos" aria-label="Search" id="nameSearch">
+              <a class="btn btn-outline-info" href="./search.html" onclick="mostrar(nameSearch.value)">Buscar</a>
             </form>
           </div>
         </div>
@@ -113,7 +113,7 @@
           <div class="col-md-6 offset-md-1 col-12 ">
             <h2 class="featurette-heading">Cargadores</h2>
             <p class="lead">Disponemos de distintos modelos de cargador para que elijas a tu conveniencia.</p>
-            <p><a class="btn btn-info" href="#">Ver catálogo &raquo;</a></p>
+            <p><a class="btn btn-info" href="./chargers.html">Ver catálogo &raquo;</a></p>
           </div>
         <div class="col-md-4 col-12">
           <img src="./assets/dist/img/Cargador.jpg" class="imageSquare img-fluid" alt="">
@@ -124,7 +124,7 @@
           <div class="col-md-6 offset-md-1 order-last col-12">
             <h2 class="featurette-heading">Esenciales</h2>
             <p class="lead">Accesorios como micas y baterias indispensables para tu equipo.</p>
-            <p><a class="btn btn-info" href="#">Ver catálogo &raquo;</a></p>
+            <p><a class="btn btn-info" href="./esencials.html">Ver catálogo &raquo;</a></p>
           </div>
           <div class="col-md-4 offset-md-1 order-first col-12">
             <img src="./assets/dist/img/Mica.jpg" class="imageSquare img-fluid" alt="">
@@ -136,7 +136,7 @@
           <div class="col-md-6 offset-md-1 col-12">
             <h2 class="featurette-heading text-right">Accesorios</h2>
             <p class="lead text-right">Articulos decorativos o de apoyo para tu equipo (bases, selfie sticks, etc.).</p>
-            <p><a class="btn btn-info" href="#">Ver catálogo &raquo;</a></p>
+            <p><a class="btn btn-info" href="./accesories.html">Ver catálogo &raquo;</a></p>
           </div>
         <div class="col-md-4 col12">
           <img src="./assets/dist/img/Base.jpg" class="imageSquare img-fluid" alt="">
@@ -159,6 +159,9 @@
   <!--Bootstrap 5.0-->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   <script src="./assets/dist/js/ProductsIndex.js"></script>
+
+  <!--Aux-->
+  <script src="./assets/dist/js/search.js"></script>
 
 
   </body>

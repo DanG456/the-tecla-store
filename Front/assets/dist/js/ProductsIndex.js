@@ -19,7 +19,7 @@ class ProductsIndex {
 
             //div imagen
             let image = document.createElement("img");
-            image.setAttribute("src", this.data.results[index].thumbnail);
+            image.setAttribute("src", this.data[index].thumbnail);
             image.setAttribute("class", "img-fluid rounded-start")
             image.style.width = "200px";
 
@@ -30,7 +30,7 @@ class ProductsIndex {
             //Nombre del producto
             let productName = document.createElement("h5");
             productName.setAttribute("class", "card-title text-center");
-            productName.textContent = `${this.data.results[index].title}`;
+            productName.textContent = `${this.data[index].title}`;
 
             //Pie de tarjeta
             let cardFooter = document.createElement("div");
@@ -38,7 +38,7 @@ class ProductsIndex {
 
             //Precio del producto
             let productPrice = document.createElement("small");
-            productPrice.textContent = `$${this.data.results[index].price}`;
+            productPrice.textContent = `$${this.data[index].price}`;
             productPrice.setAttribute("style", "font-size: 1.2em")
 
             cardContainer.appendChild(card);
@@ -57,7 +57,6 @@ class ProductsIndex {
 
         const resp = await fetch(url)
         const data = await resp.json()
-        console.log(data)
         Product = new ProductsIndex (data)
         Product.crearProductos()
         return data
@@ -66,8 +65,7 @@ class ProductsIndex {
     static getProductList = async (list) =>{
         let result;
         result = await this.getProduct(list)
-        console.log(result);
     }
 }
 
-ProductsIndex.getProductList("https://api.mercadolibre.com/sites/MLM/search?category=MLM1055&sort=available_quantity_desc");
+ProductsIndex.getProductList("http://localhost:3000/devices");
