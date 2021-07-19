@@ -1,4 +1,4 @@
-let auxName ="";
+let auxName;
 
 class Products {
     constructor(data) {
