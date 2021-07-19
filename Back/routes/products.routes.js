@@ -41,4 +41,11 @@ module.exports = (app) => {
         await dbProducts.ML.getProductList("https://api.mercadolibre.com/sites/MLM/search?q=cargadores&sort=available_quantity_desc&offset=20&limit=20")
         res.status(200).send(dbProducts.Product)
     });
+
+    //? ENDPOINT (/search:name)
+    app.get('/search/:name', async(req, res) => {
+        let busqueda = req.params.name
+        await dbProducts.ML.getProductList(`https://api.mercadolibre.com/sites/MLM/search?q=${busqueda}&sort=available_quantity_desc&offset=20&limit=20`)
+        res.status(200).send(dbProducts.Product)
+    });
 }
