@@ -1,4 +1,4 @@
-const sequelize=require('./db/connection')
+const sequelize=require('../db/connection')
 
 module.exports.createUser=async (user) =>{
 	let newUser=[

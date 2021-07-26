@@ -1,4 +1,4 @@
-const userServices=require('./services/user.services')
+const userServices=require('../services/user.services')
 
 module.exports=(app)=>{
 	//Metodo POST para ingresar usuarios
