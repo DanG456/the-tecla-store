@@ -11,7 +11,7 @@ CREATE TABLE usuarios(
 	iduser int NOT NULL IDENTITY (1,1),
 	nombre char(100) NOT NULL,
 	apellidos char(100) NOT NULL,
-	contraseña varchar(20) NOT NULL,
+	contrasena varchar(20) NOT NULL,
 	PRIMARY KEY (iduser)
 )
 GO
@@ -35,12 +35,12 @@ CREATE TABLE carrito(
 )
 GO
 
-INSERT INTO usuarios (nombre, apellidos, contraseña)
+INSERT INTO usuarios (nombre, apellidos, contrasena)
 	VALUES ('Daniel Arturo', 'Gil Quezada', 'admin1')
 GO
 
-INSERT INTO usuarios (nombre, apellidos, contraseña)
-	VALUES ('Mauricio', 'Aviles Piña', 'admin2')
+INSERT INTO usuarios (nombre, apellidos, contrasena)
+	VALUES ('Mauricio', 'Aviles Pina', 'admin2')
 GO
 
 SELECT * FROM usuarios
