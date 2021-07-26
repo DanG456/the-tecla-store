@@ -9,7 +9,7 @@ module.exports.createUser=async (user) =>{
 	]
 	console.log(newUser)
   try {
-    let resultado = await sequelize.query(`INSERT INTO Users (iduser, nombre, apellidos, contraseña) VALUES (?, ?, ?, ?)`,
+    let resultado = await sequelize.query(`INSERT INTO usuarios (iduser, nombre, apellidos, contraseña) VALUES (?, ?, ?, ?)`,
     {replacements: newUser, type: sequelize.QueryTypes.SELECT});
     console.log(resultado)
     return resultado
@@ -21,7 +21,7 @@ module.exports.createUser=async (user) =>{
 
 module.exports.showUsers=async ()=>{
   	try{
-  		let resultado = await sequelize.query('SELECT * FROM Users')
+  		let resultado = await sequelize.query('SELECT * FROM usuarios')
     	return resultado
   	}catch(err){
   		console.log(error)
