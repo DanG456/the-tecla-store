@@ -5,6 +5,7 @@ IF NOT EXISTS(
 )
 
 CREATE DATABASE TeclaStore
+USE TeclaStore
 GO
 
 CREATE TABLE usuarios(
