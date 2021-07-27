@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize')
 
 const sequelize  = new Sequelize('TeclaStore', null, null, {
-  dialect: 'mysql',
+  dialect: 'mssql',
   server: process.env.DB_HOST,
   port: process.env.DB_PORT,
   dialectOptions: {
