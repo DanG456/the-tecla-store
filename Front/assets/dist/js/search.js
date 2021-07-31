@@ -1,4 +1,4 @@
-let auxName;
+let auxName = sessionStorage.getItem('Busqueda');
 
 class Products {
     constructor(data) {
@@ -80,8 +80,3 @@ class Products {
 }
 
 Products.getProductList(`http://localhost:3000/search/${auxName}`);
-
-const mostrar = () => {
-    auxName = document.getElementById("nameSearch").value;
-    console.log(auxName);
-}
