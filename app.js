@@ -8,10 +8,13 @@ require('dotenv').config();
 //*CORS
 const cors = require('cors');
 //*Middlewares
-const midd = require('./Back/midd/midd');
+const midd = require('./midd/midd');
+//Modelos DB
+const UsersDB = require('./db/db.modelos.usuarios')
+const ProductsDB = require('./db/db.modelos.productos')
 //*Routes
-const productsRoutes = require('./Back/routes/products.routes');
-const usersRoutes=require('./Back/routes/users.routes');
+const Vistaproductos = require('./app/vista/vista.produtos');
+const Vistausuarios = require('./app/vista/vista.usuarios');
 //? Global Middlewares 
 //*JSON
 app.use(express.json());
@@ -20,9 +23,16 @@ app.use(cors());
 //*Rate Limit
 app.use(midd.theLimit);
 
+//Configuraciones globales
+app.use(express.static(__dirname + '/public'))
+app.set('view engine','ejs')
+app.set('views', __dirname + '/views')
+
 //iniciamos el servidor
 async function serverStart(){
     try{
+        await UsersDB.sync({alter: true});
+        await ProductsDB.sync({alter: true});
         await sequelize.authenticate();
         console.log("Conexión con la base de datos establecida correctamente");
         app.listen(process.env.PORT, function (){
@@ -35,5 +45,5 @@ async function serverStart(){
 
 serverStart();
 //? Implement our routes
-productsRoutes(app)
-usersRoutes(app)
+Vistaproductos(app)
+Vistausuarios(app)
