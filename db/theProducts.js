@@ -3,7 +3,7 @@ const fetch = require('node-fetch');
 
 //? Necessary objects
 let Product = {};
-
+let ProductsDB = {};
 //? ML Class
 class ML {
     //* Constructos
@@ -22,6 +22,16 @@ class ML {
         }
     };
 
+    insertDBProducts = async () =>{
+        for(let index = 0; index < 20 ; index ++){
+            ProductsDB[index] = {"id" : this.data.results[index].id,
+                "title" : this.data.results[index].title,
+                "price" : this.data.results[index].price,
+                "category": null,
+                "stock" : 100}   
+        }
+    };
+
     //* AsyncAwait API ML
     static getProduct = async(url) => {
         let mlProduct;
@@ -32,11 +42,26 @@ class ML {
         await mlProduct.saveProducts();
         return data
     };
-    
+
+    static getDBProduct = async(url) =>{
+        let dbProduct;
+
+        const resp =await fetch(url)
+        const data = await resp.json()
+        dbProduct = new ML (data)
+        await dbProduct.insertDBProducts();
+        return data
+    }
+
     static getProductList = async (list) =>{
         let result;
         result = await this.getProduct(list)
     };
+
+    static getDBProductList =  async (list) =>{
+        let result;
+        result = await this.getDBProduct(list)
+    }
 }
 
 //? Exports modules
