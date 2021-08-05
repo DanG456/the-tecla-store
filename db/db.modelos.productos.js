@@ -1,9 +1,9 @@
 //Importo los modulos necesarios
 const {DataTypes, Model } = require('sequelize');
-const sequelize = require('connection')
+const sequelize = require('./connection')
 
-//Defino los modelos de DB que voy a utilizar
-const productos = sequelize.define('productos', {
+//Modulo Productos
+const products = sequelize.define('productos', {
     nombreprod:{
         type: DataTypes.STRING(50),
         allowNull: false,
@@ -15,6 +15,12 @@ const productos = sequelize.define('productos', {
     categoria:{
         type: DataTypes.STRING(50)
     },
+    stockCantidad:{
+        type: DataTypes.INTEGER,
+        allowNull: false,
+    }
 })
 
-module.exports= Productos
+
+
+module.exports= products
