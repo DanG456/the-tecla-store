@@ -1,4 +1,6 @@
+//Importamos nuestros modulos
 const sequelize=require('../db/connection')
+
 
 module.exports.createUser=async (user) =>{
 	let newUser=[
@@ -9,12 +11,12 @@ module.exports.createUser=async (user) =>{
 	]
 	console.log(newUser)
   try {
-    let resultado = await sequelize.query(`INSERT INTO usuarios (iduser, nombre, apellidos, contraseña) VALUES (?, ?, ?, ?)`,
+    let userCreation = await sequelize.query(`INSERT INTO usuarios (iduser, nombre, apellidos, contraseña) VALUES (?, ?, ?, ?)`,
     {replacements: newUser, type: sequelize.QueryTypes.SELECT});
-    console.log(resultado)
-    return resultado
-  } catch(err) {
-    console.log(err)
+    console.log(userCreation)
+    return userCreation
+  } catch(error) {
+    console.log(error)
     throw new Error('Ocurrio un error en la creación de usuario')
   }
 }
