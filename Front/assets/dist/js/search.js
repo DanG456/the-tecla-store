@@ -49,7 +49,7 @@ class Products {
 
             //Precio del producto
             let productPrice = document.createElement("small");
-            productPrice.textContent = `$${this.data[index].price}`;
+            productPrice.textContent = `$${new Intl.NumberFormat("es-MX").format(this.data[index].price)}`;
             productPrice.setAttribute("style", "font-size: 1.2em")
 
             cardContainer.appendChild(card);
