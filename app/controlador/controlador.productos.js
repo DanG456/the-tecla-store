@@ -1,76 +1,63 @@
 //Importamos los modulos a utilizar
-const modelUsers = require('../modelo/modelo.usuarios')
-const jwt = require('jsonwebtoken')
+const modelProducts = require('../modelo/modelo.productos')
+const dbProducts = require('../../db/theProducts')
+const sequelize = require('../../db/connection')
 
-//Exportamos nuestros modulos
-module.exports.createUsers = async (user)=> {
-    let newUser = [
-        usuer.nombres,
-        usuer.apellidos,
-        usuer.email,
-        usuer.usuario,
-        usuer.pass
+module.exports.showProductsByCategory=async(category)=>{
+    try{
+        const obtainProducts = await modelProducts.getProducts(category)
+        return obtainProducts
+    }catch(error){
+        console.log(error)
+        throw new Error ('Ocurrio un error desde el controlador')
+    }
+}
+
+module.exports.createProduct=async(product)=>{
+    let newProduct = [
+        product.idprod,
+        product.nombreprod,
+        product.precio,
+        product.categoria,
+        product.stockCantidad
     ]
-    try {
-        let resultado = await modelUsers.Usernew(newUser)
-        if (resultado) {
-            return 'Alta de usuario correcta'
-        }else {
-            
-            throw new Error ('Error en la creacion del usuario o el usuario ya existe')
+    console.log(newProduct)
+    try{
+        let productCreation = await modelProducts.lastProduct(productNew)
+        if (productCreation){
+            return 'El producto se creo exitosamente'
+        }else{
+            throw new Error ('Error en la creación del producto, ya se encuentra en existencia')
         }
-
-    }catch (err) {
-        console.log(err)
-        throw new Error ('Error en la creacion del usuario')
+    }catch(error){
+        console.log(error)
+        throw new Error ('Ocurrio un error al crear el producto')
     }
 }
 
-module.exports.generateToken = async (data)=> {
-    const token = jwt.sign({
-        data} , process.env.SECRET_KEY 
-    ) //Tiempo maximo 15 minutos de validez
-    return token
-}
-
-module.exports.verifyUser = async (token)=> {
-    const resultado = jwt.verify(token, process.env.SECRET_KEY)
-
-    if(resultado){
-        return resultado
-    }else {
-        throw new Error ('Token no valido!')
-    }
-}
-
-module.exports.checkUser= async(usr)=>{
-    try {
-        let resultado = await modelUsers.Userexist (usr)
-        console.log(resultado)
-        if (resultado) {
-            return resultado
-        }else {
-            throw new Error ('No existe el Usuario')
-        }
-    }catch (err) {
+module.exports.storeProduct = async () =>{
+    try{
+        devices = await dbProducts.ML.getDBProductList("https://api.mercadolibre.com/sites/MLM/search?category=MLM1055&sort=available_quantity_desc&offset=20&limit=20")
+        accesories = await dbProducts.ML.getDBProductList("https://api.mercadolibre.com/sites/MLM/search?category=MLM3813&sort=available_quantity_desc&offset=20&limit=20")
+        esencials = await dbProducts.ML.getDBProductList("https://api.mercadolibre.com/sites/MLM/search?category=MLM192051&sort=available_quantity_desc&offset=20&limit=20")
+        chargers = await dbProducts.ML.getDBProductList("https://api.mercadolibre.com/sites/MLM/search?q=cargadores&sort=available_quantity_desc&offset=20&limit=20")
+        
+        this.createProduct(devices.ProductsDB)
+        this.createProduct(accesories.ProductsDB)
+        this.createProduct(esencials.ProductsDB)
+        this.createProduct(chargers.ProductsDB)
+    }catch(err){
         console.log(err)
         throw new Error (err)
     }
 }
 
-module.exports.deleteUser=async(user)=>{
-    let delusr=req.params.nombre
+module.exports.updateProduct=async(product)=>{
     try{
-        if(modelUsers.delUsersChk(user)){
-            delete delusr
-            return true
-        }else{
-            return false
-        }
-        
+        const updateProd = await modelProducts.Update(product)
+        return updateProd
     }catch(err){
         console.log(err)
-        throw new Error ('No se pudo borrar el usuario especificado')
+        throw new Error (err)
     }
-    
 }
