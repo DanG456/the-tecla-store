@@ -64,40 +64,44 @@ module.exports = async (app) =>{
 
 //Metodos POST
 module.exports = async(app)=>{
-    app.post('/devices',async(req,res)=>{
+    app.post('/devices',midd.validUser,async(req,res)=>{
         let insertDevice=req.body
         try{
-            insertDevice = controllerProducts.createProduct(product)
+            let insDevice = controllerProducts.createProduct(insertDevice)
+            return insDevice
         }catch(error){
             console.log(error)
             res.status(400).send('Ocurrio un error en la operacion')
         }
     })
 
-    app.post('/accesories',async(req,res)=>{
-        let insertAccesory=req.body
+    app.post('/accesories',midd.validUser,async(req,res)=>{
+        let insertAccessory=req.body
         try{
-            insertAccesory = controllerProducts.createProduct(product)
+            let insAccessory = controllerProducts.createProduct(insertAccessory)
+            return insAccessory
         }catch(error){
             console.log(error)
             res.status(400).send('Ocurrio un error en la operacion')
         }
     })
 
-    app.post('/esencials',async(req,res)=>{
+    app.post('/esencials',midd.validUser,async(req,res)=>{
         let insertEsencial = req.body
         try{
-            insertEsencial = controllerProducts.createProduct(product)
+            let insEsencial = controllerProducts.createProduct(insertEsencial)
+            return insEsencial
         }catch(error){
             console.log(error)
             res.status(400).send('Ocurrio un error en la operacion')
         }
     })
 
-    app.post('/chargers',async(req,res)=>{
+    app.post('/chargers', midd.validUser,async(req,res)=>{
         let insertCharger= req.body
         try{
-            insertCharger = controllerProducts.createProduct(product)
+            insCharger = controllerProducts.createProduct(insertCharger)
+            return insCharger
         }catch(error){
             console.log(error)
             res.status(400).send('Ocurrio un error en la operacion')
@@ -108,9 +112,19 @@ module.exports = async(app)=>{
 }
 
 //Metodos UPDATE
-/*module.exports = async(app)=>{
-    
-}*/
+module.exports = async(app)=>{
+    app.patch('/productos/:nombreprod', midd.validUser,async (req,res)=>{
+        let newprodName=req.body
+        let currentprodName=req.body
+        try{
+            let product = controllerProducts.updateProduct(newprodName,currentprodName)
+            return product
+        }catch(error){
+            console.log(error)
+            res.status(400).send('Ocurrio un error en la actualización del producto')
+        }
+    })    
+}
 
 //Metodos DELETE
 /*module.exports = async(app)=>{
