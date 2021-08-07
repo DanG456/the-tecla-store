@@ -16,6 +16,17 @@ module.exports.getProductsByCategory = async(category)=>{
     return allProducts[0][category]
 }
 
+module.exports.getProductsByName = async(name)=>{
+    let allProducts = await Productos.findAll({
+        where:{
+            nombreprod: {
+                [sequelize.eq]: [name]
+            }
+        }
+    })
+    return allProducts[0][name]
+}
+
 module.exports.lastProduct = async (prod)=> {
     console.log(prod)
     try {
@@ -32,3 +43,13 @@ module.exports.lastProduct = async (prod)=> {
         throw new Error (err)
     }
 }
+
+module.exports.Update = async (product) =>{
+    try{
+        let updateProdName = await Productos.update({nombreprod: [product]},{where: {nombreprod: 'dato provisional para no ver que marque error'}})
+    }catch(err){
+        console.log(err)
+        throw new Error(err)
+    }
+}
+
