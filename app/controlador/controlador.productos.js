@@ -1,6 +1,7 @@
 //Importamos los modulos a utilizar
 const modelProducts = require('../modelo/modelo.productos')
 const dbProducts = require('../../db/theProducts')
+const sequelize = require('../../db/connection')
 
 module.exports.showProductsByCategory=async(category)=>{
     try{
@@ -45,6 +46,16 @@ module.exports.storeProduct = async () =>{
         this.createProduct(accesories.ProductsDB)
         this.createProduct(esencials.ProductsDB)
         this.createProduct(chargers.ProductsDB)
+    }catch(err){
+        console.log(err)
+        throw new Error (err)
+    }
+}
+
+module.exports.updateProduct=async(product)=>{
+    try{
+        const updateProd = await modelProducts.Update(product)
+        return updateProd
     }catch(err){
         console.log(err)
         throw new Error (err)
