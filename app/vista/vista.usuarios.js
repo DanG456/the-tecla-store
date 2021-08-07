@@ -30,7 +30,7 @@ module.exports = async (app) =>{
 
                 let resultado = servicesUsuarios.createUsers(userNew)
                 res.status(200).json('Usuario creado correctamente')
-
+                return resultado
             }catch(err){
                 console.log(err)
                 res.status(400).send('Ocurrio un error en la creacion de usuario')  
@@ -55,6 +55,8 @@ module.exports=async(app)=>{
         let usr=[req.params.name, req.params.apellidos]
         if(controllerUsers.deleteUser(usr)){
             res.status(200).json('El usuario se elimino correctamente')
+        }else{
+            res.status(500).json('Ocurrio un error al eliminar el usuario')
         }
     })
 }
