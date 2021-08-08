@@ -69,3 +69,7 @@ class Products {
 }
 
 Products.getProductList("http://localhost:3000/esencials");
+
+//Activar etiqueta en dropdown
+let item = document.getElementById('item-Esencials')
+item.setAttribute("class", "nav-link active")

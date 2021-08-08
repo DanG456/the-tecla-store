@@ -1,53 +1,8 @@
 <%- include ('Cabeceras/cabeceraIndex') %>
 <body>
 
-    <header class="container">
-        <!--Barra de navegación superior-->
-        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-          <div class="container-fluid">
-  
-            <a class="navbar-brand" href="#">
-              <img src="/img/LogoBlack.svg" alt="Logo" class="d-inline-block align-top" id="logo">
-            </a>
-  
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-  
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-              <ul class="navbar-nav me-auto mb-2 mb-md-0">
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="#">Inicio</a>
-                </li>
-                
-                <li class="nav-item">
-                  <a class="nav-link" href="./products.ejs">Dispositivos</a>
-                </li>
-  
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="MenuDrop" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    M&aacute;s Productos  
-                  </a>
-                  <div class="dropdown-menu" aria-labelledby="MenuDrop">
-                    <a class="dropdown-item" href="./chargers.ejs">Cargadores</a>
-                    <a class="dropdown-item" href="./esencials.ejs">Esenciales</a>
-                    <a class="dropdown-item" href="./accesories.ejs">Accesorios</a>
-                  </div>
-                </li>
-                
-                <li class="nav-item">
-                  <a class="nav-link" href="./login_demo.ejs">Login</a>
-                </li>
-              </ul>
-              <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Buscar productos" aria-label="Search" id="nameSearch">
-                <a class="btn btn-outline-info" href="./search.ejs" onclick="mostrar(nameSearch.value)">Buscar</a>
-              </form>
-            </div>
-          </div>
-        </nav>
-      </header>
-  
+    <%- include ('header') %>
+
       <main>
   
         <!--Carrusel-->
@@ -73,7 +28,7 @@
           <div class="container">
             <div id="cardContainer2" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3"></div>
             <div class="container justify-content-center align-items-center">
-              <a class="btn btn-info" href="./products.ejs">Ver m&aacute;s &raquo;</a>
+              <a class="btn btn-info" href="http://localhost:3000/category/devices">Ver m&aacute;s &raquo;</a>
             </div>
           </div>
         </div>
@@ -87,7 +42,7 @@
             <div class="col-md-6 offset-md-1 col-12 ">
               <h2 class="featurette-heading">Cargadores</h2>
               <p class="lead">Disponemos de distintos modelos de cargador para que elijas a tu conveniencia.</p>
-              <p><a class="btn btn-info" href="./chargers.ejs">Ver catálogo &raquo;</a></p>
+              <p><a class="btn btn-info" href="http://localhost:3000/category/chargers">Ver catálogo &raquo;</a></p>
             </div>
           <div class="col-md-4 col-12">
             <img src="/img/Cargador.jpg" class="imageSquare img-fluid" alt="">
@@ -98,7 +53,7 @@
             <div class="col-md-6 offset-md-1 order-last col-12">
               <h2 class="featurette-heading">Esenciales</h2>
               <p class="lead">Accesorios como micas y baterias indispensables para tu equipo.</p>
-              <p><a class="btn btn-info" href="./esencials.ejs">Ver catálogo &raquo;</a></p>
+              <p><a class="btn btn-info" href="http://localhost:3000/category/esencials">Ver catálogo &raquo;</a></p>
             </div>
             <div class="col-md-4 offset-md-1 order-first col-12">
               <img src="/img/Mica.jpg" class="imageSquare img-fluid" alt="">
@@ -110,7 +65,7 @@
             <div class="col-md-6 offset-md-1 col-12">
               <h2 class="featurette-heading text-right">Accesorios</h2>
               <p class="lead text-right">Articulos decorativos o de apoyo para tu equipo (bases, selfie sticks, etc.).</p>
-              <p><a class="btn btn-info" href="./accesories.ejs">Ver catálogo &raquo;</a></p>
+              <p><a class="btn btn-info" href="http://localhost:3000/category/accesories">Ver catálogo &raquo;</a></p>
             </div>
           <div class="col-md-4 col12">
             <img src="/img/Base.jpg" class="imageSquare img-fluid" alt="">
@@ -120,11 +75,7 @@
   
         <hr class="featurette-divider">
   
-        <!-- FOOTER -->
-        <footer class="container">
-          <p class="float-end"><a href="#">Regresar arriba</a></p>
-          <p>&copy; 2021 The Tecla Store, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
-        </footer>
+        <%- include('footer.ejs') %>
   
       </main>
     <!--jQuery-->
@@ -133,7 +84,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="/js/ProductsIndex.js"></script>
 
-    <!--Aux-->
-    <script src="/js/search.js"></script>
+    <!--Barra de búsqueda-->
+    <script src="/js/getStringSearch.js"></script>
 </body>
 </html>

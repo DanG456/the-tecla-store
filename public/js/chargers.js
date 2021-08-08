@@ -69,3 +69,7 @@ class Products {
 }
 
 Products.getProductList("http://localhost:3000/chargers");
+
+//Activar etiqueta en dropdown
+let item = document.getElementById('item-Chargers')
+item.setAttribute("class", "nav-link active")

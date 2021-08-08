@@ -1,86 +1,33 @@
 <%- include ('Cabeceras/cabeceraGeneral')%>
-<header class="container">
-    <!--Barra de navegación superior-->
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-      <div class="container-fluid">
+<body>
+  
+  <%- include('header') %>
 
-        <a class="navbar-brand" href="./index.ejs">
-          <img src="/public/img/LogoBlack.svg" alt="Logo" class="d-inline-block align-top" id="logo">
-        </a>
+    <main>
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+      <section class="py-5 text-center container">
+        <div class="row py-lg-5">
+          <div class="col-lg-6 col-md-8 mx-auto">
+            <h1 class="fw-light">Dispositivos M&oacute;viles en Tendencia</h1>
+            <p class="lead text-muted">¡Bienvenido! <br> En esta p&aacute;gina encontrar&aacute;s los &uacute;ltimos dispositivos m&oacute;viles en tendencia a su mejor precio.</p>
+          </div>
+        </div>
+      </section>
 
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-          <ul class="navbar-nav me-auto mb-2 mb-md-0">
-            <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="./index.ejs">Inicio</a>
-            </li>
-            
-            <li class="nav-item">
-              <a class="nav-link active" href="./products.ejs">Dispositivos</a>
-            </li>
-
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="MenuDrop" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                M&aacute;s Productos  
-              </a>
-              <div class="dropdown-menu" aria-labelledby="MenuDrop">
-                <a class="dropdown-item" href="./chargers.ejs">Cargadores</a>
-                <a class="dropdown-item" href="#">Esenciales</a>
-                <a class="dropdown-item" href="#">Accesorios</a>
-              </div>
-            </li>
-            
-            <li class="nav-item">
-              <a class="nav-link" href="./login_demo.ejs">Login</a>
-            </li>
-          </ul>
-          <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Buscar productos" aria-label="Search">
-            <button class="btn btn-outline-info" type="submit">Buscar</button>
-          </form>
+      <div class="card-group py-3 bg-light">
+        <div class="container">
+          <div id="cardContainer" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3"></div>
         </div>
       </div>
-    </nav>
-  </header>
 
+      </main>
 
+      <%- include('footer.ejs') %>
 
-  <main>
+      <!--JS-->
+      <script src="/js/bootstrap.bundle.min.js"></script>
+      <script src="/js/productos.js"></script>
+      <!--Barra de búsqueda-->
+      <script src="/js/getStringSearch.js"></script>
 
-    <section class="py-5 text-center container">
-      <div class="row py-lg-5">
-        <div class="col-lg-6 col-md-8 mx-auto">
-          <h1 class="fw-light">Dispositivos M&oacute;viles en Tendencia</h1>
-          <p class="lead text-muted">¡Bienvenido! <br> En esta p&aacute;gina encontrar&aacute;s los &uacute;ltimos dispositivos m&oacute;viles en tendencia a su mejor precio.</p>
-          <!-- <p>
-            <button href="#" class="btn btn-outline-primary my-2" disabled>Login</button>
-            <button href="#" class="btn btn-outline-info my-2" disabled>Info</button>
-          </p> -->
-        </div>
-      </div>
-    </section>
-
-    <div class="card-group py-3 bg-light">
-      <div class="container">
-        <div id="cardContainer" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3"></div>
-      </div>
-    </div>
-
-    </main>
-
-    <footer class="text-muted py-5">
-      <div class="container">
-        <p class="float-end mb-1">
-          <a href="#">Regresar arribap</a>
-        </p>
-        <p class="mb-1">Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
-        <p class="mb-0">New to Bootstrap? <a href="/">Visit the homepage</a> or read our <a href="../getting-started/introduction/">getting started guide</a>.</p>
-      </div>
-    </footer>
-
-    <!--JS-->
-    <script src="/public/js/bootstrap.bundle.min.js"></script>
-    <script src="/public/js/productos.js"></script>
+</body>

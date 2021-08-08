@@ -24,7 +24,7 @@ module.exports = async (app) => {
 }
 //Metodos POST
 module.exports = async (app) =>{
-    app.post('/login',async(req,res)=>{
+    app.post('/inicioSesion',async(req,res)=>{
         let user=req.body;
         try{
             let login=await controllerUsers.checkUser(user)
