@@ -22,7 +22,7 @@ class ML {
         }
     };
 
-    insertDBProducts = async () =>{
+    /*insertDBProducts = async () =>{
         for(let index = 0; index < 20 ; index ++){
             ProductsDB[index] = {"id" : this.data.results[index].id,
                 "title" : this.data.results[index].title,
@@ -30,7 +30,7 @@ class ML {
                 "category": null,
                 "stock" : 100}   
         }
-    };
+    };*/
 
     //* AsyncAwait API ML
     static getProduct = async(url) => {
@@ -43,7 +43,7 @@ class ML {
         return data
     };
 
-    static getDBProduct = async(url) =>{
+    /*static getDBProduct = async(url) =>{
         let dbProduct;
 
         const resp =await fetch(url)
@@ -51,17 +51,17 @@ class ML {
         dbProduct = new ML (data)
         await dbProduct.insertDBProducts();
         return data
-    }
+    }*/
 
     static getProductList = async (list) =>{
         let result;
         result = await this.getProduct(list)
     };
 
-    static getDBProductList =  async (list) =>{
+    /*static getDBProductList =  async (list) =>{
         let result;
         result = await this.getDBProduct(list)
-    }
+    }*/
 }
 
 //? Exports modules
