@@ -21,36 +21,27 @@ module.exports = async (app) =>{
         });
     })
 
-    //? ENDPOINT (/devices)
-    app.get('/devices', async (req, res)=>{
-        try{
-            controllerProducts.storeProduct()
-            controllerProducts.showProductsByCategory(devices)
-            res.status(200).send(dbProducts.Product)
-        }catch(error){
-            console.log(error)
-            res.status(500).jeson('Hubo un error al cargar esta página')
-        }
-    })
+     //? ENDPOINT (/devices)
+     app.get('/devices', async(req, res) => {
+        await dbProducts.ML.getProductList("https://api.mercadolibre.com/sites/MLM/search?category=MLM1055&sort=available_quantity_desc&offset=20&limit=20")
+        res.status(200).send(dbProducts.Product)
+    });
 
     //? ENDPOINT (/accesories)
     app.get('/accesories', async(req, res) => {
-        controllerProducts.storeProduct()
-        controllerProducts.showProductsByCategory(accesories)
+        await dbProducts.ML.getProductList("https://api.mercadolibre.com/sites/MLM/search?category=MLM3813&sort=available_quantity_desc&offset=20&limit=20")
         res.status(200).send(dbProducts.Product)
     });
 
     //? ENDPOINT (/esencials)
     app.get('/esencials', async(req, res) => {
-        controllerProducts.storeProduct()
-        controllerProducts.showProductsByCategory(esencials)
+        await dbProducts.ML.getProductList("https://api.mercadolibre.com/sites/MLM/search?category=MLM192051&sort=available_quantity_desc&offset=20&limit=20")
         res.status(200).send(dbProducts.Product)
     });
 
     //? ENDPOINT (/chargers)
     app.get('/chargers', async(req, res) => {
-        controllerProducts.storeProduct()
-        controllerProducts.showProductsByCategory(chargers)
+        await dbProducts.ML.getProductList("https://api.mercadolibre.com/sites/MLM/search?q=cargadores&sort=available_quantity_desc&offset=20&limit=20")
         res.status(200).send(dbProducts.Product)
     });
 
@@ -75,7 +66,7 @@ module.exports = async(app)=>{
         }
     })
 
-    app.post('/accesories',midd.validUser,async(req,res)=>{
+    app.post('/accesories',midd.validUser(),async(req,res)=>{
         let insertAccessory=req.body
         try{
             let insAccessory = controllerProducts.createProduct(insertAccessory)
@@ -86,7 +77,7 @@ module.exports = async(app)=>{
         }
     })
 
-    app.post('/esencials',midd.validUser,async(req,res)=>{
+    app.post('/esencials',midd.validUser(),async(req,res)=>{
         let insertEsencial = req.body
         try{
             let insEsencial = controllerProducts.createProduct(insertEsencial)
@@ -97,7 +88,7 @@ module.exports = async(app)=>{
         }
     })
 
-    app.post('/chargers', midd.validUser,async(req,res)=>{
+    app.post('/chargers', midd.validUser(),async(req,res)=>{
         let insertCharger= req.body
         try{
             insCharger = controllerProducts.createProduct(insertCharger)
@@ -113,9 +104,9 @@ module.exports = async(app)=>{
 
 //Metodos UPDATE
 module.exports = async(app)=>{
-    app.patch('/productos/:nombreprod', midd.validUser,async (req,res)=>{
+    app.patch('/productos/:nombreprod', midd.validUser(),async (req,res)=>{
         let newprodName=req.body
-        let currentprodName=req.body
+        let currentprodName=req.params.nombreprod
         try{
             let product = controllerProducts.updateProduct(newprodName,currentprodName)
             return product
@@ -127,6 +118,16 @@ module.exports = async(app)=>{
 }
 
 //Metodos DELETE
-/*module.exports = async(app)=>{
-    
-}*/
+module.exports = async(app)=>{
+    app.delete('/productos/:nombreprod',midd.validUser(),async(req,res)=>{
+        let prodName = req.params.nombreprod
+        try{
+            if(controllerProducts.delProd(prodName)){
+                res.status(200).send('El producto fue eliminado correctamente')
+            }
+        }catch(error){
+            console.log(error)
+            res.status(400).send('Ocurrio un error al eliminar el producto')
+        }
+    })
+}
