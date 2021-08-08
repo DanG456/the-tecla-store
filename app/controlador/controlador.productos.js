@@ -52,12 +52,27 @@ module.exports.storeProduct = async () =>{
     }
 }
 
-module.exports.updateProduct=async(product)=>{
+module.exports.updateProduct = async(newproduct,currprod)=>{
     try{
-        const updateProd = await modelProducts.Update(product)
+        const updateProd = await modelProducts.Update(newproduct,currprod)
         return updateProd
     }catch(err){
         console.log(err)
         throw new Error (err)
+    }
+}
+
+module.exports.delProd = async(prodName)=>{
+    let delProd = req.params.nombreprod
+    try{
+        if(modelProducts.delProdChk()){
+            delete delProd
+            return true
+        }else{
+            return false
+        }
+    }catch(err){
+        console.log(err)
+        throw new Error ('No se pudo eliminar el producto indicado')
     }
 }
