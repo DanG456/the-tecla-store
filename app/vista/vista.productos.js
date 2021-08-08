@@ -43,7 +43,7 @@ module.exports = async (app) =>{
     //? ENDPOINT (/search:name)
     app.get('/search/:name', async(req, res) => {
         let busqueda = req.params.name
-        await dbProducts.ML.getDBProductList(`https://api.mercadolibre.com/sites/MLM/search?q=${busqueda}&sort=available_quantity_desc&offset=20&limit=20`)
+        await dbProducts.ML.getProductList(`https://api.mercadolibre.com/sites/MLM/search?q=${busqueda}&sort=available_quantity_desc&offset=20&limit=20`)
         res.status(200).send(dbProducts.Product)
     });
 
