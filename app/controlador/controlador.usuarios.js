@@ -5,11 +5,11 @@ const jwt = require('jsonwebtoken')
 //Exportamos nuestros modulos
 module.exports.createUsers = async (user)=> {
     let newUser = [
-        usuario.nombres,
-        usuario.apellidos,
-        usuario.email,
-        usuario.usuario,
-        usuario.pass
+        usuer.nombres,
+        usuer.apellidos,
+        usuer.email,
+        usuer.usuario,
+        usuer.pass
     ]
     try {
         let resultado = await modelUsers.Usernew(newUser)
@@ -43,7 +43,7 @@ module.exports.verifyUser = async (token)=> {
     }
 }
 
-module.exports.checkUser= async(usr)=>{
+module.exports.checkUser = async(usr)=>{
     try {
         let resultado = await modelUsers.Userexist (usr)
         console.log(resultado)
@@ -58,7 +58,7 @@ module.exports.checkUser= async(usr)=>{
     }
 }
 
-module.exports.deleteUser=async(user)=>{
+module.exports.deleteUser = async(user)=>{
     let delusr=req.params.nombre
     try{
         if(modelUsers.delUsersChk(user)){
@@ -73,4 +73,34 @@ module.exports.deleteUser=async(user)=>{
         throw new Error ('No se pudo borrar el usuario especificado')
     }
     
+}
+
+module.exports.updateUser = async(newUsr,currUsr) => {
+    try{
+        const updateUser = await modelUsers.Update(newUsr,currUsr)
+        return updateUser
+    }catch(err){
+        console.log(err)
+        throw new Error (err)
+    }
+}
+
+module.exports.updateCategory = async(newCat,currCat) => {
+    try{
+        const updateCategory = await modelUsers.UpdateCat(newCat,currCat)
+        return updateCategory
+    }catch(err){
+        console.log(err)
+        throw new Error (err)
+    }
+}
+
+module.exports.showUsers=async ()=>{
+    try{
+        let userShow = await sequelize.query('SELECT * FROM usuarios')
+      return userShow
+    }catch(err){
+        console.log(error)
+      throw new Error ('Ocurrio un error en la consulta de usuarios')
+    }
 }
