@@ -13,7 +13,8 @@ const midd = require('./midd/midd');
 const UsersDB = require('./db/db.modelos.usuarios')
 const ProductsDB = require('./db/db.modelos.productos')
 //*Routes
-const Vistaproductos = require('./app/vista/vista.produtos');
+const vistaStore = require('./app/vista/vista.store');
+const Vistaproductos = require('./app/vista/vista.productos');
 const Vistausuarios = require('./app/vista/vista.usuarios');
 //? Global Middlewares 
 //*JSON
@@ -45,5 +46,6 @@ async function serverStart(){
 
 serverStart();
 //? Implement our routes
+vistaStore(app)
 Vistaproductos(app)
 Vistausuarios(app)

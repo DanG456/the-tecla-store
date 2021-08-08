@@ -7,7 +7,7 @@ const userController=require('../app/controlador/controlador.usuarios')
 //*Limitar el uso de la API
 module.exports.theLimit = rateLimit({
     windowMs: 30 * 60 * 1000, //* 30 minutos de uso
-    max: 100, //* 10 peticiones por ventana
+    max: 1000, //* 10 peticiones por ventana
     message: "Usted ha excedido los límites de acceso a la API"
 });
 
