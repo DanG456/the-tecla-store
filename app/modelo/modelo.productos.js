@@ -44,9 +44,35 @@ module.exports.lastProduct = async (prod)=> {
     }
 }
 
-module.exports.Update = async (product) =>{
+module.exports.Update = async (newproduct,currprod) =>{
     try{
-        let updateProdName = await Productos.update({nombreprod: [product]},{where: {nombreprod: 'dato provisional para no ver que marque error'}})
+        let updateProdName = await Productos.update({nombreprod: [newproduct]},{where: {nombreprod: [currprod]}})
+        return updateProdName
+    }catch(err){
+        console.log(err)
+        throw new Error(err)
+    }
+}
+
+module.exports.delProdChk = async (prod) => {
+    let product = [prod.nombreprod]
+    try{
+        let prodChk = await Productos.findOne({where: {nombreprod: `${product[0]}`}})
+        if(prodChk != null){
+            await Productos.destroy({where: {nombreprod: `${product[0]}`}})
+        }else{
+            return false
+        }
+    }catch(err){
+        console.log(err)
+        throw new Error (err)
+    }
+}
+
+module.exports.UpdateCat = async (newCtg,currCtg) => {
+    try{
+        let updateCtg = await Productos.update({categoria: [newCtg]},{where: {nombreprod: [currCtg]}})
+        return updateCtg
     }catch(err){
         console.log(err)
         throw new Error(err)
