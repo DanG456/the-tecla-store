@@ -62,3 +62,13 @@ module.exports.Userexists = async (usr) =>{
         throw new Error (err)
     }
 }
+
+module.exports.Update = async (newUsr,currUsr) => {
+    try{
+        let updateUsr = await Usuarios.update({nombre: [newUsr]},{where: {nombreprod: [currUsr]}})
+        return updateUsr
+    }catch(err){
+        console.log(err)
+        throw new Error(err)
+    }
+}
