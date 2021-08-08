@@ -43,7 +43,7 @@ module.exports.Usernew = async (usr)=> {
 }
 
 module.exports.Userexists = async (usr) =>{
-    let user = [usr.name , usr.pass]
+    let user = [usr.mail , usr.pass]
     try {
         let resultado = await Usuarios.findOne({where: {name: `${user[0]}`}})
         console.log(resultado)
