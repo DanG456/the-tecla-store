@@ -7,10 +7,6 @@ const midd = require('../../midd/midd');
 
 //Metodos GET
 module.exports = async (app) =>{
-    //? Raise our server
-    app.listen(process.env.PORT, () => {
-       console.log(`Servidor iniciado en http://${process.env.HOST}:${process.env.PORT}`);
-    });
 
     //? ENDPOINT Start (/)
     app.get('/', (req, res)=> {
