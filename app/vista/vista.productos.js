@@ -114,7 +114,19 @@ module.exports = async(app)=>{
             console.log(error)
             res.status(400).send('Ocurrio un error en la actualización del producto')
         }
-    })    
+    })
+    
+    app.patch('/categorias/:categoria',async(req,res)=> {
+        let newCategory = req.body
+        let currCategory = req.params.categoria
+
+        try{
+            let cat = controllerProducts.updateCategory(newCategory,currCategory)
+        }catch(error){
+            console.log(error)
+            res.status(400).send('Ocurrrio un error en la actualización de la categoría')
+        }
+    })
 }
 
 //Metodos DELETE
