@@ -76,3 +76,13 @@ module.exports.delProd = async(prodName)=>{
         throw new Error ('No se pudo eliminar el producto indicado')
     }
 }
+
+module.exports.updateCategory = async(newCat,currCat) => {
+    try{
+        const updateCategory = await modelUsers.UpdateCat(newCat,currCat)
+        return updateCategory
+    }catch(err){
+        console.log(err)
+        throw new Error (err)
+    }
+}
