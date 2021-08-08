@@ -4,10 +4,9 @@ const dbProducts = require('../../db/theProducts');
 const midd = require('../../midd/midd');
 
 //Exportamos los modulos a ser utilizados
-
-//Metodos GET
 module.exports = async (app) =>{
 
+    //! Metodos GET
     //? ENDPOINT Start (/)
     app.get('/', (req, res)=> {
         res.send({
@@ -47,10 +46,8 @@ module.exports = async (app) =>{
         await dbProducts.ML.getDBProductList(`https://api.mercadolibre.com/sites/MLM/search?q=${busqueda}&sort=available_quantity_desc&offset=20&limit=20`)
         res.status(200).send(dbProducts.Product)
     });
-}
 
-//Metodos POST
-module.exports = async(app)=>{
+    //? Metodos POST
     app.post('/devices',midd.validUser,async(req,res)=>{
         let insertDevice=req.body
         try{
@@ -95,11 +92,7 @@ module.exports = async(app)=>{
         }
     })
 
-
-}
-
-//Metodos UPDATE
-module.exports = async(app)=>{
+    //! Metodos UPDATE
     app.patch('/productos/:nombreprod', midd.validUser(),async (req,res)=>{
         let newprodName=req.body
         let currentprodName=req.params.nombreprod
@@ -111,10 +104,8 @@ module.exports = async(app)=>{
             res.status(400).send('Ocurrio un error en la actualización del producto')
         }
     })    
-}
 
-//Metodos DELETE
-module.exports = async(app)=>{
+    //! Metodos DELETE
     app.delete('/productos/:nombreprod',midd.validUser(),async(req,res)=>{
         let prodName = req.params.nombreprod
         try{
