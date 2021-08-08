@@ -85,16 +85,6 @@ module.exports.updateUser = async(newUsr,currUsr) => {
     }
 }
 
-module.exports.updateCategory = async(newCat,currCat) => {
-    try{
-        const updateCategory = await modelUsers.UpdateCat(newCat,currCat)
-        return updateCategory
-    }catch(err){
-        console.log(err)
-        throw new Error (err)
-    }
-}
-
 module.exports.showUsers=async ()=>{
     try{
         let userShow = await sequelize.query('SELECT * FROM usuarios')
