@@ -59,7 +59,7 @@ module.exports = async (app) =>{
 
 //Metodos UPDATE
 module.exports=async(app)=>{
-    app.patch('/usuario/:nombre',async(req,res)=> {
+    app.patch('/usuarios/:nombre',async(req,res)=> {
         let newName = req.body
         let currName = req.params.nombre
         try{
