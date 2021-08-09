@@ -1,0 +1,34 @@
+<%- include ('Cabeceras/cabeceraGeneral') %>
+<body>
+
+    <%- include ('header') %>
+    
+      <main>
+    
+        <section class="py-5 text-center container">
+          <div class="row py-lg-5">
+            <div class="col-lg-6 col-md-8 mx-auto">
+              <h1 class="fw-light">Accesorios en Tendencia</h1>
+              <p class="lead text-muted">¡Bienvenido! <br> En esta p&aacute;gina encontrar&aacute;s los accesorios ideales para tu dispositivo m&oacute;vil a su mejor precio.</p>
+            </div>
+          </div>
+        </section>
+    
+        <div class="card-group py-3 bg-light">
+          <div class="container">
+            <div id="cardContainer" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3"></div>
+          </div>
+        </div>
+    
+        </main>
+    
+        <%- include('footer.ejs') %>
+    
+        <!--JS-->
+        <script src="/js/bootstrap.bundle.min.js"></script>
+        <script src="/js/accesories.js"></script>
+        <!--Barra de búsqueda-->
+        <script src="/js/getStringSearch.js"></script>
+    
+</body>
+</html>

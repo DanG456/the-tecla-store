@@ -1,13 +1,13 @@
-class ProductsIndex {
+class Products {
     constructor(data) {
         this.data = data
     };
 
     //Metodos
     crearProductos = () => {
-        for (let index = 0; index < 6; index++){
+        for (let index = 0; index < 19; index++){
             //Contenedor principal donde se alojan las tarjetas
-            let cardContainer = document.getElementById("cardContainer2");
+            let cardContainer = document.getElementById("cardContainer");
 
             //div card
             let card = document.createElement("div");
@@ -38,7 +38,11 @@ class ProductsIndex {
 
             //Precio del producto
             let productPrice = document.createElement("small");
+<<<<<<< HEAD:public/js/productos.js
+            productPrice.textContent = `$${new Intl.NumberFormat("es-MX").format(this.data[index].price)}`;
+=======
             productPrice.textContent = `$${this.data[index].price}`;
+>>>>>>> master:Front/assets/dist/js/productos.js
             productPrice.setAttribute("style", "font-size: 1.2em")
 
             cardContainer.appendChild(card);
@@ -57,7 +61,7 @@ class ProductsIndex {
 
         const resp = await fetch(url)
         const data = await resp.json()
-        Product = new ProductsIndex (data)
+        Product = new Products (data)
         Product.crearProductos()
         return data
     };
@@ -68,4 +72,11 @@ class ProductsIndex {
     }
 }
 
-ProductsIndex.getProductList("http://localhost:3000/devices");
+Products.getProductList("http://localhost:3000/devices");
+<<<<<<< HEAD:public/js/productos.js
+
+//Activar etiqueta en dropdown
+let item = document.getElementById('item-Dispositivos')
+item.setAttribute("class", "nav-link active")
+=======
+>>>>>>> master:Front/assets/dist/js/productos.js
