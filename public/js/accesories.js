@@ -72,4 +72,4 @@ Products.getProductList("http://localhost:3000/accesories");
 
 //Activar etiqueta en dropdown
 let item = document.getElementById('item-Accesories')
-item.setAttribute("class", "nav-link active")
+item.setAttribute("class", "dropdown-item active")
