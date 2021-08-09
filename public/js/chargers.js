@@ -38,7 +38,7 @@ class Products {
 
             //Precio del producto
             let productPrice = document.createElement("small");
-            productPrice.textContent = `$${new Intl.NumberFormat("es-MX").format(this.data[index].price)}`;
+            productPrice.textContent = `$${this.data[index].price}`;
             productPrice.setAttribute("style", "font-size: 1.2em")
 
             cardContainer.appendChild(card);
@@ -69,7 +69,3 @@ class Products {
 }
 
 Products.getProductList("http://localhost:3000/chargers");
-
-//Activar etiqueta en dropdown
-let item = document.getElementById('item-Chargers')
-item.setAttribute("class", "dropdown-item active")

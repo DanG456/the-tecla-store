@@ -38,7 +38,11 @@ class ProductsIndex {
 
             //Precio del producto
             let productPrice = document.createElement("small");
+<<<<<<< HEAD:public/js/ProductsIndex.js
             productPrice.textContent = `$${new Intl.NumberFormat("es-MX").format(this.data[index].price)}`;
+=======
+            productPrice.textContent = `$${this.data[index].price}`;
+>>>>>>> master:Front/assets/dist/js/ProductsIndex.js
             productPrice.setAttribute("style", "font-size: 1.2em")
 
             cardContainer.appendChild(card);
@@ -69,7 +73,10 @@ class ProductsIndex {
 }
 
 ProductsIndex.getProductList("http://localhost:3000/devices");
+<<<<<<< HEAD:public/js/ProductsIndex.js
 
 //Activar etiqueta en dropdown
 let item = document.getElementById('item-Inicio')
 item.setAttribute("class", "nav-link active")
+=======
+>>>>>>> master:Front/assets/dist/js/ProductsIndex.js
