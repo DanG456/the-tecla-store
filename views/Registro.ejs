@@ -1,106 +1,75 @@
 <%- include ('Cabeceras/cabeceraLogin') %>
-<body class="bg-light">
-    
-    <div class="container">
-      <main>
-        <div class="py-5 text-center">
-          <img class="d-block mx-auto mb-4" src="/public/brand/bootstrap-logo.svg" alt="" width="72" height="57">
-          <h2>Registro de usuario</h2>
-         
-        </div>
-        <div class="col-md-7 col-lg-12">
-            <h4 class="mb-3">Datos de usuario</h4>
-            <form class="needs-validation" novalidate>
-              <div class="row g-3">
-                <div class="col-sm-6">
-                  <label for="firstName" class="form-label">Nombre(s)</label>
-                  <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
-                  <div class="invalid-feedback">
-                    El campo Nombre(s) es erroneo.
-                  </div>
-                </div>
-    
-                <div class="col-sm-6">
-                  <label for="lastName" class="form-label">Apellidos</label>
-                  <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
-                  <div class="invalid-feedback">
-                    El campo Apellidos es erroneo.
-                  </div>
-                </div>
-    
-                <div class="col-12">
-                  <label for="username" class="form-label">Nombre de usuario</label>
-                  <div class="input-group has-validation">
-                    <span class="input-group-text">@</span>
-                    <input type="text" class="form-control" id="username" placeholder="Username" required>
-                  <div class="invalid-feedback">
-                      El nombre de usuario es obligatorio.
-                    </div>
-                  </div>
-                </div>
-    
-                <div class="col-12">
-                  <label for="email" class="form-label">Email <span class="text-muted">(Opcional)</span></label>
-                  <input type="email" class="form-control" id="email" placeholder="you@example.com">
-                  <div class="invalid-feedback">
-                    Email inválido, por favor intente de nuevo.
-                  </div>
-                </div>
-    
-                <div class="col-12">
-                  <label for="address" class="form-label">Dirección</label>
-                  <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
-                  <div class="invalid-feedback">
-                    Por favor ingrese una dirección valida.
-                  </div>
-                </div>
-    
-                <div class="col-12">
-                  <label for="address2" class="form-label">Dirección secundaria <span class="text-muted">(Opcional)</span></label>
-                  <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
-                </div>
-    
-                <div class="col-md-5">
-                  <label for="country" class="form-label">País</label>
-                  <select class="form-select" id="country" required>
-                    <option value="">Seleccionar</option>
-                    <option>México</option>
-                  </select>
-                  <div class="invalid-feedback">
-                    Seleccione un país.
-                  </div>
-                </div>
-    
-                <div class="col-md-4">
-                  <label for="state" class="form-label">Estado</label>
-                  <select class="form-select" id="state" required>
-                    <option value="">Seleccionar</option>
-                    <option>Ciudad de México</option>
-                  </select>
-                  <div class="invalid-feedback">
-                    Por favor seleccione un estado.
-                  </div>
-                </div>
-    
-                <div class="col-md-3">
-                  <label for="zip" class="form-label">Código Postal</label>
-                  <input type="text" class="form-control" id="zip" placeholder="" required>
-                  <div class="invalid-feedback">
-                    Ingrese un código postal válido.
-                  </div>
-                </div>
-              </div>
-    
-              <hr class="my-4">
-              <button class="w-100 btn btn-primary btn-lg" type="submit">Completar registro</button>
-        </form>
+  <body>
+    <main>
+      
+      <div class="container">
+        
+        <div class="row justify-content-center">
+          <div class="col-12 col-md-6 align-self-center text-center">
+            <img src="/img/PrincipalWhite.svg" class="logo" width="258" height="98">
+            <hr>
+            <h2>Registro de usuario</h2>       
+          </div>
         </div>
 
-        <%- include('footer.ejs') %>
-    
-        <script src="/js/bootstrap.bundle.min.js"></script>
-    
-        <script src="/js/form-validation.js"></script>
-    
-</body>
+        <br>
+
+        <form>
+          <div class="row justify-content-center">
+            <div class="col-12 col-md-4">
+              <label for="firstName" class="form-label">Nombre(s):</label>
+              <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+            </div>
+            <div class="col-12 col-md-8">
+              <label for="lastName" class="form-label">Apellidos:</label>
+              <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
+            </div>
+            <div class="col-12 col-md-6">
+              <label for="email" class="form-label">Email:</label>
+              <input type="email" class="form-control" id="email" placeholder="you@mail.com">
+            </div>
+            <div class="col-12 col-md-6">
+              <label for="password" class="form-label">Contraseña:</label>
+              <input type="password" class="form-control" id="password" placeholder="Mínimo 8 caracteres">
+            </div>
+            <div class="col-12 col-md-8">
+              <label for="address" class="form-label">Dirección:</label>
+              <input type="text" class="form-control" id="address" placeholder="Calle/Numero/Colonia" required>
+            </div>
+            <div class="col-12 col-md-4">
+              <label for="country" class="form-label">País:</label>
+              <select class="form-select" id="country" required>
+                <option value="">Seleccionar</option>
+                <option>México</option>
+              </select>
+            </div>
+            <div class="col-12">
+              <br>
+            </div>
+            <div class="col-8 col-md-4">
+              <button class="w-100 btn btn-success btn-lg" type="submit">Completar registro</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <br>
+
+      <footer class="container">
+        <div class="row">
+          <div class="col-6 d-flex order-2 justify-content-end">
+            <a class="nav-link" href="http://localhost:3000/">Regresar</a>
+          </div>
+          <div class="col-6 d-flex justify-content-start">
+            <p>&copy; 2021 The Tecla Store, Inc. &middot;</p>
+          </div>
+        </div>
+        
+      </footer>
+      
+      <!--Scripts-->
+      <script src="/js/bootstrap.bundle.min.js"></script>
+      <script src="/js/form-validation.js"></script>
+
+    </main>
+  </body>
 </html>
